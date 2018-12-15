@@ -14,6 +14,8 @@ repositories {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.snmp4j/snmp4j
+    compile group: 'org.snmp4j', name: 'snmp4j', version: '3.0.6'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
