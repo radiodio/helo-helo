@@ -5,7 +5,7 @@ apply plugin: 'java'
 apply plugin:"idea"
 apply plugin: 'application'
 
-mainClassName = 'helo.helo.ApplicationMain'
+mainClassName = 'helo.snmp.trap.ApplicationMain'
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
@@ -14,11 +14,29 @@ repositories {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.quartz-scheduler/quartz
+    compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.0'
+    // https://mvnrepository.com/artifact/org.quartz-scheduler/quartz-jobs
+    compile group: 'org.quartz-scheduler', name: 'quartz-jobs', version: '2.3.0'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
+    testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-nop
+    testCompile group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.25'
+
+    // https://mvnrepository.com/artifact/org.snmp4j/snmp4j
+    compile group: 'org.snmp4j', name: 'snmp4j', version: '2.7.0'
+
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
+
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
 jar {
-    archiveName = 'helo-helo.jar'
+    archiveName = 'helo-job.jar'
     manifest {
         attributes 'Main-Class': 'helo.helo.ApplicationMain'
     }
